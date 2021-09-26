@@ -1,17 +1,7 @@
 class DictionaryWriter
 
-  attr_reader :first_line_hash, :second_line_hash, :third_line_hash
+  attr_reader :hash
 
-  def make_hash(key_array, value_array)
-    hash = Hash.new
-    count = 0
-
-    while count < 27
-      hash[key_array[count]] = value_array[count]
-      count += 1
-    end
-    hash
-  end
 
   def initialize
     alphabet_array = *('a'..'z')
@@ -26,8 +16,13 @@ class DictionaryWriter
     second_line_array = second_line_string.split(' ')
     third_line_array = third_line_string.split(' ')
 
-    @first_line_hash = make_hash(alphabet_array, first_line_array)
-    @second_line_hash = make_hash(alphabet_array, second_line_array)
-    @third_line_hash = make_hash(alphabet_array, third_line_array)
+    @hash = Hash.new
+    count = 0
+
+    while count < 27
+      @hash[alphabet_array[count]] = [first_line_array[count], second_line_array[count], third_line_array[count]]
+      count += 1
+    end
+    @hash
   end
 end

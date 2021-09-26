@@ -1,37 +1,13 @@
+require_relative './dictionary_writer'
+
 class DictionaryReader
 
-  attr_reader :first_line_hash, :second_line_hash, :third_line_hash
-
-  def make_hash(key_array, value_array)
-    hash = Hash.new
-    count = 0
-
-    while count < 27
-  require 'pry'; binding.pry
-
-      hash[key_array[count]] = value_array[count]
-      count += 1
-
-    end
-    hash
-  end
+  attr_reader :hash
 
   def initialize
-    alphabet_array = *('a'..'z')
-    alphabet_array.unshift(' ')
+    dictionary = DictionaryWriter.new
+    writer_array = dictionary.hash
 
-    first_line_string = '.. 0. 0. 00 00 0. 00 00 0. .0 .0 0. 0. 00 00 0. 00 00 0. .0 .0 0. 0. .0 00 00 0.'
-    second_line_string = '.. .. 0. .. .0 .0 0. 00 00 0. 00 .. 0. .. .0 .0 0. 00 00 0. 00 .. 0. 00 .. .0 .0'
-    third_line_string = '.. .. .. .. .. .. .. .. .. .. .. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 00 00 .0 00 00 00'
-
-
-    first_line_array = first_line_string.split(' ')
-    second_line_array = second_line_string.split(' ')
-    third_line_array = third_line_string.split(' ')
-
-
-    @first_line_hash = make_hash(first_line_array, alphabet_array)
-    @second_line_hash = make_hash(second_line_array, alphabet_array)
-    @third_line_hash = make_hash(third_line_array, alphabet_array)
+    @hash = writer_array.invert
   end
 end
