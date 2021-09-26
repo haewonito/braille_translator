@@ -1,2 +1,1 @@
-this message is for testing nightwriter and nightreader for messages that are longer
-than forty lines
+this message is for testing nightwriter and nightreader for messages that are longer than forty lines

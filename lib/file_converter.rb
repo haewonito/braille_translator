@@ -16,17 +16,16 @@ class FileConverter
 
   def read
     @input_file = File.open(@input_add, 'r')
-    # @input_file.close
+    @input_text = @input_file.read.chomp
+    @input_file.close
 
   end
 
-  def input_text
-    @input_text ||= @input_file.read.chomp
-  end
 
   def translate
-    require 'pry'; binding.pry
-    split_input = input_text.split('')
+
+    split_input = @input_text.split('')
+
     @total_text = ''
 
     while split_input.length > 0
@@ -50,7 +49,7 @@ class FileConverter
 
   def write
 
-    File.write(output_add, @input_text)
+    File.write(output_add, @translated_text)
     char_count = @input_text.length * 6
 
     puts "Created #{@output_add} containing #{char_count} characters."
