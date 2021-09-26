@@ -1,4 +1,4 @@
-class Dictionary
+class DictionaryWriter
 
   attr_reader :first_line_hash, :second_line_hash, :third_line_hash
 
@@ -18,11 +18,7 @@ class Dictionary
     alphabet_array.unshift(' ')
 
     first_line_string = '.. 0. 0. 00 00 0. 00 00 0. .0 .0 0. 0. 00 00 0. 00 00 0. .0 .0 0. 0. .0 00 00 0.'
-
-
     second_line_string = '.. .. 0. .. .0 .0 0. 00 00 0. 00 .. 0. .. .0 .0 0. 00 00 0. 00 .. 0. 00 .. .0 .0'
-
-
     third_line_string = '.. .. .. .. .. .. .. .. .. .. .. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 00 00 .0 00 00 00'
 
 

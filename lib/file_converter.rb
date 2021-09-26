@@ -17,7 +17,7 @@ class FileConverter
 
   def write
     output_file = File.open(@output, 'w')
-    output.write(@input_text)
+    output_file.write(@input_text)
     output_file.close
 
     puts "Created #{@output} containing #{@input_text.length} characters."
