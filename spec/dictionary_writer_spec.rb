@@ -8,6 +8,13 @@ RSpec.describe DictionaryWriter do
     expect(dictionary).to be_a DictionaryWriter
   end
 
+  it '#dictionary_arrays' do
+    dictionary = DictionaryWriter.new
+    expect(dictionary.alphabet).to be_a Array
+    expect(dictionary.alphabet).to include ('d')
+    expect(dictionary.line1).to be_a Array
+  end
+
   it 'has hashes' do
     dictionary = DictionaryWriter.new
     expect(dictionary.hash).to be_a Hash
