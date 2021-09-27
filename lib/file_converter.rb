@@ -5,7 +5,6 @@ class FileConverter
   attr_reader :input_text, :output_text, :input_add, :output_add, :dictionary, :translated_text
 
   def initialize(input_add, output_add)
-
     @input_add  = input_add
     @output_add = output_add
     @dictionary = DictionaryWriter.new
@@ -18,18 +17,14 @@ class FileConverter
     @input_file = File.open(@input_add, 'r')
     @input_text = @input_file.read.chomp
     @input_file.close
-
   end
 
 
   def translate
-
     split_input = @input_text.split('')
-
     @total_text = ''
 
     while split_input.length > 0
-
       line1 = ''
       line2 = ''
       line3 = ''
@@ -48,13 +43,9 @@ class FileConverter
 
 
   def write
-
     File.write(output_add, @translated_text)
     char_count = @input_text.length * 6
 
     puts "Created #{@output_add} containing #{char_count} characters."
-
   end
-
-
 end
